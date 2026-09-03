@@ -3,9 +3,9 @@ select
 
     count(*) as total_payments,
 
-    count_if(status = 'COMPLETED') as completed_payments,
+    {{ payment_status_count('COMPLETED') }} as completed_payments,
 
-    count_if(status = 'FAILED') as failed_payments,
+    {{ payment_status_count('FAILED') }} as failed_payments,
 
     sum(
         case
