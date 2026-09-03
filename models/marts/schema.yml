@@ -1,0 +1,114 @@
+version: 2
+
+models:
+
+  - name: fct_payments
+    description: "One row per payment."
+
+    columns:
+      - name: payment_id
+        data_tests:
+          - not_null
+          - unique
+
+      - name: customer_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_customers')
+                field: customer_id
+
+      - name: account_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_accounts')
+                field: account_id
+
+      - name: merchant_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_merchants')
+                field: merchant_id
+
+      - name: amount
+        data_tests:
+          - not_null
+
+      - name: status
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - COMPLETED
+                  - FAILED
+                  - PENDING
+
+
+  - name: dim_customers
+    description: "Customer dimension."
+
+    columns:
+      - name: customer_id
+        data_tests:
+          - not_null
+          - unique
+
+
+  - name: dim_accounts
+    description: "Account dimension."
+
+    columns:
+      - name: account_id
+        data_tests:
+          - not_null
+          - unique
+
+      - name: customer_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_customers')
+                field: customer_id
+
+
+  - name: dim_merchants
+    description: "Merchant dimension."
+
+    columns:
+      - name: merchant_id
+        data_tests:
+          - not_null
+          - unique
+
+
+  - name: daily_payment_metrics
+    description: "Daily aggregated payment processing metrics."
+
+    columns:
+      - name: payment_date
+        data_tests:
+          - not_null
+          - unique
+
+      - name: total_payments
+        data_tests:
+          - not_null
+
+      - name: completed_payments
+        data_tests:
+          - not_null
+
+      - name: failed_payments
+        data_tests:
+          - not_null
+
+      - name: total_payment_volume
+        data_tests:
+          - not_null

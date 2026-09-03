@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: raw
+    database: PAYMENT_ANALYTICS
+    schema: RAW
+
+    tables:
+      - name: customers
+      - name: accounts
+      - name: payments
+      - name: merchants
