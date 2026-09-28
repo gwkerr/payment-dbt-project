@@ -1,6 +1,11 @@
 Welcome to your new dbt project!
 
-### Using the starter project
+## Welcome to Gavin's payments etl/elt project!
+
+## This project uses:
+## The Data Build Tool (dot)
+## Snowflake
+## Apache Airflow
 
 Try running the following commands:
 - dbt run
