@@ -2,7 +2,7 @@ Welcome to your new dbt project!
 
 ## Welcome to Gavin's payments etl/elt project!
 
-## This project uses: The Data Build Tool (dbt), Snowflake, and Apache Airflow
+## This project uses the Data Build Tool (dbt), Snowflake, and Apache Airflow
 
 Try running the following commands:
 - dbt run
