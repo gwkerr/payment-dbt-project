@@ -1,6 +1,4 @@
-Welcome to your new dbt project!
-
-## Welcome to Gavin's payments etl/elt project!
+# Welcome to Gavin's payments etl/elt project!
 
 ## This project uses the Data Build Tool (dbt), Snowflake, and Apache Airflow
 
